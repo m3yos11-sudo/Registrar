@@ -1,0 +1,73 @@
+<?php
+  session_start();
+
+  if (isset($_SESSION["is_authenticated"]) && $_SESSION["is_authenticated"] === true) {
+    header("Location: dash.php");
+    exit;
+}
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .btn-color{ 
+          background-color: #0e1c36 !important;
+          color: white !important;
+  
+}
+
+.profile-image-pic{
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+
+
+
+.cardbody-color{
+  background-color: #ebf2fa;
+}
+
+a{
+  text-decoration: none;
+}
+    </style>
+
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100">
+<div class="container">
+    <div class="row">
+      <div class="col-md-5 offset-md-4">
+        <div class="card my-5 pt-6" >
+          <form class="card-body cardbody-color p-lg-4 " action="auth.php"  method="post">
+
+            <div class="text-center ">
+              <img src="./img/1739566967442.jpg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-1"
+                width="150px" alt="profile">
+                <h3>CDSL</h3>
+            </div>
+
+            <div class="mb-4 pt-5" >
+              <input type="text" class="form-control" name="username" id="Username" placeholder="User Name">
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            </div>
+            <div class="text-center"> <input type="submit" value="Login" class="btn btn-color px-5 mb-5 w-100"></div>
+           
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
